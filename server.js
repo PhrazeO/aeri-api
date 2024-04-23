@@ -29,7 +29,7 @@ connectToMongoDB();
 
 
 // Inside yeeour servsser route or handler for '/getUsers'
-app.get('https://aeri.onrender.com/getUsers', async (req, res) => {
+app.get('/getUsers', async (req, res) => {
     try {
       const users = await User.find()// Assuming 'User' is your MongoDB model
   
@@ -41,7 +41,7 @@ app.get('https://aeri.onrender.com/getUsers', async (req, res) => {
     }
   })
 
-  app.get('https://aeri.onrender.com/getCountry', async (req, res) => {
+  app.get('/getCountry', async (req, res) => {
     try {
       const country = await Country.find()// Assuming 'Country' is your MongoDB model
   
@@ -61,5 +61,5 @@ User.createIndexes();
 
 
 app.listen(8080, () => {
-    console.log(`Server RUNNING${PORT}`)
+    console.log(`Server RUNNING YEAH${PORT}`)
 });
