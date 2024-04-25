@@ -2,6 +2,8 @@
 // Filename - backend/index.js
 const User = require('./models/Users');
 const Country = require('./models/Country');
+const Region = require('./models/Region');
+
 
 // For backend and express
 const express = require('express');
@@ -49,6 +51,22 @@ app.get('/getCountry', async (req, res) => {
         res.status(500).json({ error: error.message || 'Internal Server Error' });
     }
 });
+
+app.get('/getRegion', async (req, res) => {
+    try {
+        const region = await Region.find(); // Assuming 'Region' is your MongoDB model
+        console.log('Fetched Things:', region); // Log the actual data (not the model)
+        res.json(region);
+    } catch (error) {
+        console.error('Error fetching region data:', error);
+        res.status(500).json({ error: error.message || 'Internal Server Error' });
+    }
+});
+
+
+
+
+
 
 // Define a Mongoose schema
 const answersSchema = new mongoose.Schema({
